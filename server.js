@@ -5,9 +5,10 @@ const dotenv = require("dotenv");
 
 dotenv.config();
 
-
 const authRoutes = require("./routes/authRoutes");
 const skillRoutes = require("./routes/skillRoutes");
+const userRoutes = require("./routes/userRoutes");
+
 
 // NEW ROUTES
 const matchRoutes = require("./routes/matchRoutes");
@@ -26,6 +27,7 @@ mongoose.connect(process.env.MONGO_URI)
 .catch((err) => console.log(err));
 
 app.use("/api/auth", authRoutes);
+app.use("/api/users", userRoutes);
 app.use("/api/skills", skillRoutes);
 
 // NEW API ROUTES
